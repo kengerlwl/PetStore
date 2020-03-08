@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--实现servlet和url的映射-->
+
+
+<servlet>
+    <servlet-name>test</servlet-name>
+    <servlet-class>repetstore.servlet.testServlet</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/demo</url-pattern>
+    </servlet-mapping>
+            
+    <servlet>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>repetstore.servlet.catalog.MainServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+    <!--<servlet>-->
+        <!--<servlet-name>SignonServlet</servlet-name>-->
+        <!--<servlet-class>repetstore.servlet.account.SignonServlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>SignonServlet</servlet-name>-->
+        <!--<url-pattern>/signon</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--实现servlet和url的映射-->
+    
+    <servlet>
+        <servlet-name>cartS</servlet-name>
+        <servlet-class>repetstore.servlet.cartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cartS</servlet-name>
+        <url-pattern>/cartS</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SignonServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.SignonServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignonServlet</servlet-name>
+        <url-pattern>/signon</url-pattern>
+    </servlet-mapping>
+
+    <!--//对NewAccountServlet进行xml配置-->
+    <servlet>
+        <servlet-name>NewAccountServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.NewAccountFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>NewAccountServlet</servlet-name>
+        <url-pattern>/newAccount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SaveAccountFormServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.SaveAccountFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SaveAccountFormServlet</servlet-name>
+        <url-pattern>/saveAccount</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>ViewNewAccountServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.ViewNewAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewNewAccountServlet</servlet-name>
+        <url-pattern>/viewNewAccount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditAccountFormServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.EditAccountFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditAccountFormServlet</servlet-name>
+        <url-pattern>/editAccount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewSignonServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.ViewSignonServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewSignonServlet</servlet-name>
+        <url-pattern>/viewSignon</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SignoutServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.SignoutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignoutServlet</servlet-name>
+        <url-pattern>/signout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ValidateCodeServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.ValidateCodeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ValidateCodeServlet</servlet-name>
+        <url-pattern>/validateCode</url-pattern>
+    </servlet-mapping>
+
+    
+    
+    <servlet>
+        <servlet-name>ViewCategoryServlet</servlet-name>
+        <servlet-class>repetstore.servlet.catalog.ViewCategoryServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ViewCategoryServlet</servlet-name>
+        <url-pattern>/viewCategory</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewProductServlet</servlet-name>
+        <servlet-class>repetstore.servlet.catalog.ViewProductServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewProductServlet</servlet-name>
+        <url-pattern>/viewProduct</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ViewItemServlet</servlet-name>
+        <servlet-class>repetstore.servlet.catalog.ViewItemServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewItemServlet</servlet-name>
+        <url-pattern>/viewItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewSearchProductServlet</servlet-name>
+        <servlet-class>repetstore.servlet.catalog.ViewSearchProductServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewSearchProductServlet</servlet-name>
+        <url-pattern>/searchProduct</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+
+
+    <servlet>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <servlet-class>repetstore.servlet.cart.UpdateCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <url-pattern>/updateCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddItemToCartServlet</servlet-name>
+        <servlet-class>repetstore.servlet.cart.AddItemToCartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddItemToCartServlet</servlet-name>
+        <url-pattern>/addItemToCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewCartServlet</servlet-name>
+        <servlet-class>repetstore.servlet.cart.ViewCartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewCartServlet</servlet-name>
+        <url-pattern>/viewCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoveItemFromCartServlet</servlet-name>
+        <servlet-class>repetstore.servlet.cart.RemoveItemFromCartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RemoveItemFromCartServlet</servlet-name>
+        <url-pattern>/removeItemFromCart</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ViewNewOrderFormServlet</servlet-name>
+        <servlet-class>repetstore.servlet.order.ViewNewOrderFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewNewOrderFormServlet</servlet-name>
+        <url-pattern>/viewNewOrderForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewShippingFormServlet</servlet-name>
+        <!--<servlet-class>org.csu.mypetstore.web.servlets.order.ViewShippingFormServlet</servlet-class>-->
+        <servlet-class>repetstore.servlet.order.ViewShippingFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewShippingFormServlet</servlet-name>
+        <url-pattern>/viewShippingForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewConfirmOrderServlet</servlet-name>
+        <!--<servlet-class>org.csu.mypetstore.web.servlets.order.ViewConfirmOrderServlet</servlet-class>-->
+        <servlet-class>repetstore.servlet.order.ViewConfirmOrderServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewConfirmOrderServlet</servlet-name>
+        <url-pattern>/viewConfirmOrder</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <!--<servlet-class>org.csu.mypetstore.web.servlets.order.NewOrderServlet</servlet-class>-->
+        <servlet-class>repetstore.servlet.order.NewOrderServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <url-pattern>/newOrder</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+    <servlet>
+        <servlet-name>ViewListOrderServlet</servlet-name>
+        <!--<servlet-class>org.csu.mypetstore.web.servlets.order.ViewListOrderServlet</servlet-class>-->
+        <servlet-class>repetstore.servlet.order.ViewListOrderServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewListOrderServlet</servlet-name>
+        <url-pattern>/viewListOrder</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ViewMyOrdersServlet</servlet-name>
+        <!--<servlet-class>org.csu.mypetstore.web.servlets.order.ViewMyOrdersServlet</servlet-class>-->
+        <servlet-class>repetstore.servlet.order.ViewMyOrdersServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewMyOrdersServlet</servlet-name>
+        <url-pattern>/viewMyOrder</url-pattern>
+    </servlet-mapping>
+
+
+
+<!--//显示悬浮的商品信息？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？-->
+    <servlet>
+        <servlet-name>CategoryShowJsServlet</servlet-name>
+        <servlet-class>repetstore.servlet.CategoryShowJsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoryShowJsServlet</servlet-name>
+        <url-pattern>/categoryShowJsServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <servlet>
+        <servlet-name>UsernameIsExistServlet</servlet-name>
+        <servlet-class>repetstore.servlet.account.UsernameIsExistServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UsernameIsExistServlet</servlet-name>
+        <url-pattern>/usernameIsExistServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>

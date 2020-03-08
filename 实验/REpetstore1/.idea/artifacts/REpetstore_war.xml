@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="REpetstore:war">
+    <output-path>D:/</output-path>
+    <root id="archive" name="REpetstore_war.war">
+      <element id="artifact" artifact-name="REpetstore:war exploded" />
+    </root>
+  </artifact>
+</component>
