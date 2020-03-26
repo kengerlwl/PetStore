@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="shortcut icon" href="images/favicon.ico"/>
+		<title>Umbra &#8211; Cart | HTML Ecommerce Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Personal Profile Form Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<!-- //for-mobile-apps -->
+<link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/j-forms.css">
+<link href="css/style2.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/elegantIcon.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all" />
+		<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="css/custom.css" type="text/css" media="all"/>
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	<div id="app">
+		<div class="noo-spinner">
+			<div class="sk-rotating-plane"></div>
+		</div>
+		<div class="site">
+			<header class="noo-header fixed_top header-1">
+				<div class="navbar-wrapper">
+					<div class="navbar navbar-default">
+						<div class="container-fluid">
+							<div class="navbar-logo">
+								<a href="/seller" class="custom-logo-link">
+									<img src="images/logo.png" alt="Logo"/>
+								</a>
+								<button data-target=".nav-collapse" class="btn-navbar noo_icon_menu icon_menu"></button>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="search-header">
+					<div class="remove-form"></div>
+					<div class="container">
+						<form class="form-horizontal noo-umbra-searchform">
+							<label class="note-search">Type and Press Enter to Search</label>
+							<input type="search" name="s" class="form-control" value="" placeholder="Enter keyword to search..."/>
+							<button type="submit" class="noo-search-submit"><i class="icon_search"></i></button>
+						</form>
+					</div>
+				</div>
+			</header>
+		
+		
+		</div>
+
+        <div class="content">
+
+        <div class="main w3l">
+			<div class="im-g">
+				<img src="images/img1.jpg" alt="">
+			</div>
+			<form class="contact-forms wthree" >
+				<!-- end /.header-->
+
+		
+				<div class="main-row">
+						<label class="input select">
+							<select name="position" v-model="product.kind">
+								<option value="none" selected="" disabled="">请选择分类</option>
+								<option value="Cat">Cat</option>
+								<option value="Dog">Dog</option>
+								<option value="Dog">Dog</option>
+								<option value="Dog">Dog</option>
+								<option value="Dog">Dog</option>
+							</select>
+							<i></i>
+						</label>
+					</div>
+
+					<!-- start country -->
+		
+					<!-- end country -->
+					<!-- start position -->
+		
+					<!-- end position -->
+					<!-- start city post code -->
+					<div class="first-line agileits">
+						<div class="span8 main-row">
+							<div class="input">
+								
+								<input type="text" id="city" v-model="product.img_url" placeholder="请输入图片地址" name="city" required="">
+
+							</div>
+						</div>
+						
+					</div>
+					<!-- end city post code -->
+
+					<!-- start address -->
+					<div class="main-row">
+						<div class="input">
+							
+							<input type="text" id="address" placeholder="请输入名称" name="address" required="" v-model="product.name">
+						</div>
+					</div>
+					<!-- end address -->
+
+
+					
+
+					<!-- start message -->
+					<div class="main-row">
+						<div class="input">
+							<textarea placeholder="请输入详细描述" spellcheck="false" name="message" v-model="product.info"></textarea>
+								<span class="tooltip tooltip-right-top">描述</span>
+						</div>
+					</div>
+					<!-- end message -->
+
+					<!-- start files -->
+					
+						
+						
+					
+					<!-- end files -->
+
+			
+				<!-- end /.content -->
+
+				<div class="footer">
+					<button type="reset" class="secondary-btn" v-on:click="change()">添加</button>
+				</div>
+				<!-- end /.footer -->
+
+			</form>
+		</div>
+        </div>
+
+		<a href="#" class="go-to-top hidden-print"><i class="fa fa-angle-up"></i></a> 
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/modernizr-2.7.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+		<script type="text/javascript" src="js/jquery.prettyPhoto.init.min.js"></script>
+		<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+		<script type="text/javascript" src="js/off-cavnas.js"></script>
+		<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+		<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		</div>
+	</body>
+
+
+	<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+	test :"test",
+	searchValue:"",
+	product:{
+		name:"商品名字",
+		kind:"Cat",
+		info:"简介",
+		img_url:"请输入图片地址",
+	},
+
+
+  },
+  created(){
+	  console.log(this.test);
+	  //载入值
+
+  },
+  methods:{
+	  clickAdd(){
+		  console.log('click add button')
+		  	console.log('load');
+			
+	  },
+	  search(){
+		  console.log(this.searchValue)
+			window.location.href="search?search="+this.searchValue;   
+	  },
+	  change(){
+		  console.log(this.product)
+	  }
+
+  }
+  
+})
+</script>
+</html>

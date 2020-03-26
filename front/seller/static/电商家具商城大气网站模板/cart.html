@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="shortcut icon" href="images/favicon.ico"/>
+		<title>Umbra &#8211; Cart | HTML Ecommerce Template</title>
+
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/elegantIcon.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all" />
+		<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="css/custom.css" type="text/css" media="all"/>
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	<div id="app">
+		<div class="noo-spinner">
+			<div class="sk-rotating-plane"></div>
+		</div>
+		<div class="site">
+			<header class="noo-header fixed_top header-1">
+				<div class="navbar-wrapper">
+					<div class="navbar navbar-default">
+						<div class="container-fluid">
+							<div class="navbar-logo">
+								<a href="http://localhost:3000/main" class="custom-logo-link">
+									<img src="images/logo.png" alt="Logo"/>
+								</a>
+								<button data-target=".nav-collapse" class="btn-navbar noo_icon_menu icon_menu"></button>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="search-header">
+					<div class="remove-form"></div>
+					<div class="container">
+						<form class="form-horizontal noo-umbra-searchform">
+							<label class="note-search">Type and Press Enter to Search</label>
+							<input type="search" name="s" class="form-control" value="" placeholder="Enter keyword to search..."/>
+							<button type="submit" class="noo-search-submit"><i class="icon_search"></i></button>
+						</form>
+					</div>
+				</div>
+			</header>
+			<div class="noo-page-heading cart-heading">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="noo-heading-content">
+								<h1 class="page-title">Cart</h1>
+								<p>打造专属于您的购物车，极致的丝滑体验</p>
+								<div class="noo-page-breadcrumb">
+									<span><a href="http://localhost:3000/main">Home</a> <i class="arrow_right"></i> <span>Cart</span></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="main">
+				<div class="section mt-10 mb-10" v-on:input="change()">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="commerce-cart">
+									<table class="cart">
+										<thead>
+											<tr>
+												<th class="product-thumbnail">产品样</th>
+												<th class="product-name">产品名</th>
+												<th class="product-price">单件价格</th>
+												<th class="product-quantity">数量</th>
+												<th class="product-subtotal">总共</th>
+												<th class="product-remove" >&nbsp;</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="cart_item" v-for="(item,index) in cart_list">
+												<td class="product-thumbnail">
+													<a >
+														<img :src="item.img_url" alt="" />
+													</a>
+												</td>
+												<td class="product-name">
+													<a href="shop-detail.html">{{item.name}}</a> 
+												</td>
+												<td class="product-price">
+													&#36;{{item.price}}
+												</td>
+												<td class="product-quantity">
+													<div class="quantity">
+														<div class="noo-quantity-attr">
+															<button class="qty-decrease" onclick="var qty_el = document.getElementById('qty'); var qty = qty_el.value; if( !isNaN( qty ) && qty > 1 ) qty_el.value--;return false;" type="button">-</button>
+															<input id="qty" type="text" name="quantity" value="1" v-model="item.number" class="input-text qty text" size="4" />
+															<button class="qty-increase" onclick="var qty_el = document.getElementById('qty'); var qty = qty_el.value; if( !isNaN( qty )) qty_el.value++;return false;" type="button">+</button>
+														</div>
+													</div>
+												</td>
+												<td class="product-subtotal">
+													&#36;{{item.number*item.price}}
+												</td>
+												<td class="product-remove" >
+													<a v-on:click="deleteitem(index)">{{index}}Remove</a>
+												</td>
+											</tr>
+										
+											<tr>
+												<td colspan="6" class="actions">
+													<a class="empty-cart" href="#">清空购物车</a>
+													<a class="continue" href="http://localhost:3000/main">继续购物</a>
+													<a class="button" href="#">更新购物车</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="cart-collaterals">
+									<div class="noocart-coupon">
+										<label>Discount code</label>
+										<p>Enter your code if you have one</p>
+										<input type="text" class="input-text" value="" placeholder="Coupon code" />
+										<button class="noo-apply-coupon">Apply Coupon</button>
+									</div>
+									<div class="cart-totals">
+										<h2>Cart Totals</h2>
+										<table>
+											<tbody>
+											
+												<tr class="order-total">
+													<th>总计</th>
+													<td class="amount"><strong>&#36;{{total}}</strong></td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="wc-proceed-to-checkout">
+											<a href="#" class="checkout-button button">
+												Proceed to Checkout
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<a href="#" class="go-to-top hidden-print"><i class="fa fa-angle-up"></i></a> 
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/modernizr-2.7.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+		<script type="text/javascript" src="js/jquery.prettyPhoto.init.min.js"></script>
+		<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+		<script type="text/javascript" src="js/off-cavnas.js"></script>
+		<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+		<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</div>
+
+	<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+
+	total:0,
+	cart_list:[
+	{
+		img_url:"images/product/thumb/product_1.jpg",
+		name:"asdfsdf",
+		price:20,
+		number:2,
+	},
+	{
+		img_url:"images/product/thumb/product_1.jpg",
+		name:"asdfsdf",
+		price:20,
+		number:2,
+	},
+	
+	],
+
+
+	
+
+  },
+  created(){
+	  //载入值
+      console.log('created');
+	  this.change();
+
+  },
+  methods:{
+	  clickAdd(){
+		  console.log('click add button')
+		  	console.log('load');
+			
+	  },
+	  singin(){
+			window.location.href="main?account="+this.account;   
+	  },
+	  change(){
+		  arr= this.cart_list;
+		  this.total=0;
+		  for(var i = 0, len = arr.length; i < len; i++){
+			console.log(arr[i]);
+			this.total = this.total +arr[i].price*arr[i].number;
+		}
+	  },
+	  deleteitem(index){
+		  console.log("asf");
+		  	this.cart_list.splice(0,index+1);
+
+	  }
+	
+	  
+  }
+  
+})
+</script>
+</html>
