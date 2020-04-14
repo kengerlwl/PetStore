@@ -84,11 +84,10 @@
 						<label class="input select">
 							<select name="position" v-model="product.kind">
 								<option value="none" selected="" disabled="">请选择分类</option>
-								<option value="Cat">Cat</option>
-								<option value="Dog">Dog</option>
-								<option value="Dog">Dog</option>
-								<option value="Dog">Dog</option>
-								<option value="Dog">Dog</option>
+								<option value="FI-FW-02">FI-FW-02</option>
+								<option value="K9-CW-01">K9-CW-01</option>
+								<option value="K9-RT-02">K9-RT-02</option>
+								
 							</select>
 							<i></i>
 						</label>
@@ -126,12 +125,7 @@
 					
 
 					<!-- start message -->
-					<div class="main-row">
-						<div class="input">
-							<textarea placeholder="请输入详细描述" spellcheck="false" name="message" v-model="product.info"></textarea>
-								<span class="tooltip tooltip-right-top">描述</span>
-						</div>
-					</div>
+			
 					<!-- end message -->
 
 					<!-- start files -->
@@ -180,19 +174,74 @@ var vm = new Vue({
 	searchValue:"",
 	product:{
 		name:"商品名字",
-		kind:"Cat",
+		kind:"",//productid
 		info:"简介",
-		img_url:"请输入图片地址",
+		img_url:"请输入价格",//price
 	},
+	temp:"",
 
 
   },
   created(){
 	  console.log(this.test);
+	  this.initDate();
 	  //载入值
 
   },
   methods:{
+
+	initDate(){
+		  var settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "http://localhost:3001/get_session",
+			"method": "GET",
+			"headers": {
+				"accept": "application/json, text/javascript, */*; q=0.01",
+			
+			},
+			"processData": false,
+			"contentType": false,
+			"mimeType": "multipart/form-data",
+			}
+			var self = this;
+			$.ajax(settings).done(function (response) {
+			self.temp = response;
+			console.log(self.temp);
+			window.name = self.temp;
+			
+			});
+	}  ,
+
+
+	insertItem(){
+
+		var self =this;
+		console.log(self.name)
+
+			data = {"itemid":self.product.name,"productid":self.product.kind,"listprice":self.product.img_url,"unitcost":1.0,"supplier":self.temp,"status":"S3","attr1":"test13","attr2":"test23","attr3":"test33","attr4":"test43","attr5":"test53","number":null,"imgUrl":null,"productname":null,"suppname":null,"supplier":"2"}
+
+
+			var settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "http://localhost:8090/insertItem",
+			"method": "POST",
+			"headers": {
+				"content-type": "application/json",
+				"cache-control": "no-cache",
+				"postman-token": "0077f85e-77bd-eae7-ff76-e33b957a710f"
+			},
+			"processData": false,
+			"data":JSON.stringify(data),
+			}
+
+			$.ajax(settings).done(function (response) {
+			console.log(response);
+			});
+	},
+
+
 	  clickAdd(){
 		  console.log('click add button')
 		  	console.log('load');
@@ -202,8 +251,9 @@ var vm = new Vue({
 		  console.log(this.searchValue)
 			window.location.href="search?search="+this.searchValue;   
 	  },
-	  change(){
-		  console.log(this.product)
+	  change(){//添加商品
+		  console.log(this.product);
+		  this.insertItem();
 	  }
 
   }

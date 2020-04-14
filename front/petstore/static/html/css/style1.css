@@ -121,7 +121,7 @@ form {
 .form-sub-w3{
 	position:relative;
 }
- .form-w3-agile input[type="text"], .form-w3-agile input[type="password"], .form-w3-agile input[type="email"] {
+ .form-w3-agile input[type="text"], .form-w3-agile input[type="password"], .form-w3-agile input[type="number"] {
     outline: none;
     font-size: 15px;
     color: #ffffff;

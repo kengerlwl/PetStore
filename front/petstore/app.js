@@ -4,6 +4,9 @@ app.use(express.static('static/cpts_1444_cgx/'));
 app.use(express.static('static/html/'));
 app.use(express.static('static/user/'));
 var session = require('express-session')
+const Vue = require('vue')
+let a = require('./vueApp.js');
+
 app.all("*",function(req,res,next){
     //设置允许跨域的域名，*代表允许任意域名跨域
     res.header("Access-Control-Allow-Origin","*");
@@ -44,7 +47,27 @@ app.use(session({
         res.send("success");
     })
 
-    
+
+app.get('/home', function (req, res) {
+    const app = a.app;
+
+    const renderer = a.renderer;
+  
+  
+  // 第 3 步：将 Vue 实例渲染为 HTML
+  
+  renderer.renderToString(app, (err, html) => {
+      if (err) {
+        res.status(500).end('Internal Server Error')
+        return
+      }
+      res.writeHead(200, {
+        "Content-Type": "text/html;charset=utf-8"
+    });
+      res.end(html)
+    })
+})    
+
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname+"/static/test.html");

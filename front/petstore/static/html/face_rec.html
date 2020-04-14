@@ -1,0 +1,300 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>singin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+<meta name="keywords" content="Internship Sign In & Sign Up Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/snow.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style>
+.web-cam { 
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+}
+
+video {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: -125px;
+  left: -125px;
+}
+</style>
+<!-- //web font -->
+</head>
+<body>
+<div id="app">
+<div class="snow-container">
+			  <div class="snow foreground"></div>
+			  <div class="snow foreground layered"></div>
+			  <div class="snow middleground"></div>
+			  <div class="snow middleground layered"></div>
+			  <div class="snow background"></div>
+			  <div class="snow background layered"></div>
+			</div>
+
+<div class="top-buttons-agileinfo">
+<a href="login"  class="active">Sign In</a><a href="signup.html">Sign Up</a>
+</div>
+<h1>Welcome To PetStore</h1>
+<div class="main-agileits">
+<!--form-stars-here-->
+		<div class="form-w3-agile">
+			<h2 class="sub-agileits-w3layouts">Sign In</h2>
+
+
+
+
+<!--因为前端设计的问题，建议将投往屏幕的左边偏一点。-->
+
+				<div class="web-cam" style="position: relative;z-index:999;margin: auto;/* top:0; */">
+					<video controls="" id="video">
+					</video>
+					<canvas id="canvas"></canvas>
+
+       		</div>
+
+
+<div class="progress-container">
+    <div class="progress-box">
+        <div id="progressbar" class="progress-bar" style="width: 0%;"></div>
+    </div>
+    <div class="progressbar-text">90%</div>
+</div>
+
+
+
+			<form  @submit.prevent="">
+					<input type="text" id="account" name="Eamil" placeholder="account" required="" vlue="account"/ >
+					<a href="#" class="forgot-w3layouts">Forgot Password ?</a>
+				<div class="submit-w3l">
+					<input id="capture" type="submit" value="Sign in" v-on:click="singin" >
+
+				</div>
+				<p class="p-bottom-w3ls"><a href="signup.html">Sign Up here</a>if u do not have an account yet.</p>
+			</form>
+		</div>
+		</div>
+<!--//form-ends-here-->
+
+	<!-- //copyright --> 
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</div>
+</body>
+
+
+  <script>
+  var results=[];
+    var file ,stream;
+    //访问用户媒体设备的兼容方法
+    function getUserMedia(constraints, success, error) {
+      if (navigator.mediaDevices.getUserMedia) {
+        //最新的标准API
+        navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+      } else if (navigator.webkitGetUserMedia) {
+        //webkit核心浏览器
+        navigator.webkitGetUserMedia(constraints,success, error)
+      } else if (navigator.mozGetUserMedia) {
+        //firfox浏览器
+        navigator.mozGetUserMedia(constraints, success, error);
+      } else if (navigator.getUserMedia) {
+        //旧版API
+        navigator.getUserMedia(constraints, success, error);
+      }
+    }
+ 
+    let video = document.getElementById('video');
+    let canvas = document.getElementById('canvas');
+    let context = canvas.getContext('2d');
+    let flag  = false;
+    let count = 0;
+
+var data = {'data':'asdfsdf'};
+
+
+ 
+    function success(stream) {
+      //兼容webkit核心浏览器
+      let CompatibleURL = window.URL || window.webkitURL;
+      //将视频流设置为video元素的源
+      console.log(stream);
+      stream = stream;
+      //video.src = CompatibleURL.createObjectURL(stream);
+      video.srcObject = stream;
+      video.play();
+    }
+ 
+    function error(error) {
+      console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
+    }
+ 
+    if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {
+      //调用用户媒体设备, 访问摄像头
+      getUserMedia({video : {width: 480, height: 320}}, success, error);
+    } else {
+      alert('不支持访问用户媒体');
+    }
+        // base64转文件
+
+    var bar = 0;
+ var timeINT;
+
+    function chageBar(){
+
+      bar = bar +0.1;
+
+      if(bar > 100)
+      {
+        //进度条已经走到了底
+        clearInterval(timeINT);//清除计时器
+
+        //添加请求
+
+
+        //修改值
+
+        $("#account").attr("value", "your account");
+
+
+
+      }
+
+
+      $("#progressbar").attr("style", "width: " + bar + "%");
+
+    }
+
+
+
+
+
+    //开始拍照
+    document.getElementById('capture').addEventListener('click',function () {
+
+
+      //调整进度条 设置定时器
+        timeINT=self.setInterval("chageBar()",3);
+
+
+
+        console.log('start');
+
+        for(var i =0; i < 10; i++)
+        {
+        get_face();
+        }
+        console.log(results);
+
+
+    }
+    
+    
+    )
+
+ 
+    let get_face = function(){
+      count= count+1;
+      if(count >100)
+      {
+        clearInterval(myinter);
+      }
+        context.drawImage(video, 0, 0, 480, 320);      
+        // 获取图片base64链接
+        var image = canvas.toDataURL('image/png');
+        data = image;
+        // 定义一个img
+
+        send();
+    }
+
+    let send = function () {
+      console.log('send to back');
+
+       // console.log(data)
+
+
+            
+            var data1= {
+                data: JSON.stringify({
+                    'data': data
+                }),
+            }
+                $.ajax({
+                url:'http://127.0.0.1:3001',
+                type:'POST',
+                data:data1,
+                dataType: 'json',
+                async: false,
+
+                success:function(res){
+                    //console.log(res);
+                    results.push(res);
+
+                },
+                error:function (res) {
+                    console.log(res.responseText);
+                }
+
+            })
+
+        //stream.getTracks()[0].stop();//结束关闭流
+    }
+    
+  </script>
+<style>
+.progress-container {
+	display:table;
+	position:relative;
+}
+.progress-container .progress-box,.progress-container .progressbar-text {
+	display:table-cell;
+	vertical-align:middle;
+}
+.progress-container .progress-box {
+	width:100%;
+	height:5px;
+	position:relative;
+}
+.progress-container .progress-box .progress-bar {
+	height:inherit;
+	background-color:#0078ff;
+}
+.progress-container .progress-box .progress-bar:after {
+	content:" ";
+	z-index:-1;
+	width:100%;
+	height:inherit;
+	left:0;
+	position:absolute;
+	background-color:#E5E9F2;
+}
+.progress-container .progress-box .progress-bar,.progress-container .progress-box .progress-bar:after {
+	-webkit-border-radius:50%;
+	-moz-border-radius:999rem;
+	border-radius:999rem;
+}
+.progress-container .progressbar-text {
+	color:#475669;
+	padding-left:10px;
+}
+</style>
+</html>

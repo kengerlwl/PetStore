@@ -11,6 +11,8 @@
   "dependencies": {
     "antd": "^3.26.9",
     "express": "^4.17.1",
-    "express-session": "^1.17.0"
+    "express-session": "^1.17.0",
+    "vue": "^2.6.11",
+    "vue-server-renderer": "^2.6.11"
   }
 }
