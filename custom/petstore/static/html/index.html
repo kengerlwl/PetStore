@@ -1,0 +1,168 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>singin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+<meta name="keywords" content="Internship Sign In & Sign Up Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/snow.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="js/md5.js"></script>
+
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<!-- //web font -->
+</head>
+<body>
+<div id="app">
+<div class="snow-container">
+			  <div class="snow foreground"></div>
+			  <div class="snow foreground layered"></div>
+			  <div class="snow middleground"></div>
+			  <div class="snow middleground layered"></div>
+			  <div class="snow background"></div>
+			  <div class="snow background layered"></div>
+			</div>
+
+<div class="top-buttons-agileinfo">
+<a href="login"  class="active">Sign In</a><a href="signup.html">Sign Up</a>
+</div>
+<h1>Welcome To PetStore</h1>
+<div class="main-agileits">
+<!--form-stars-here-->
+		<div class="form-w3-agile">
+			<h2 class="sub-agileits-w3layouts">Sign In</h2>
+			<form  @submit.prevent="" >
+					<input type="password" name="Eamil" placeholder="Email" required="" v-model:vlue="account"/ v-on:input="change()">
+					<input type="password" name="Password" placeholder="Password" required="" v-model:vlue="password"/>
+					<a href="" v-if="flag">密码错误</a>
+
+					<a href="#" class="forgot-w3layouts">Forgot Password ?</a>
+				<div class="submit-w3l">
+					<input type="submit" value="Sign in" v-on:click="singin" >
+				</div>
+				<p class="p-bottom-w3ls"><a href="signup.html">Sign Up here</a>if u do not have an account yet.</p>
+                </br>
+                <a href="face_rec.html">Face_Rec</a>
+			</form>
+		</div>
+		</div>
+<!--//form-ends-here-->
+<!-- copyright -->
+
+	<!-- //copyright --> 
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</div>
+</body>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+	account:'',
+	password:'',
+	flag:false,
+
+	
+
+  },
+  created(){
+	var password = hex_md5('123456');
+	console.log(password);
+
+	  //载入值
+
+  },
+  methods:{
+	  clickAdd(){
+		  console.log('click add button')
+		  	console.log('load');
+			
+	  },
+
+
+	  singin(){
+		  console.log("login");
+		  self =this;
+
+
+
+			//先进行访问，查看是否正确
+			var form = new FormData();
+			form.append("usernmae", this.account);
+			form.append("password", hex_md5(this.password));
+
+			var settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "http://localhost:8090/signIn",
+			"method": "POST",
+			"headers": {
+				"cache-control": "no-cache",
+				"postman-token": "44c63f38-1728-da4a-5c8d-02237c74b9a6"
+			},
+			"processData": false,
+			"contentType": false,
+			"mimeType": "multipart/form-data",
+			"data": form
+			}
+
+			$.ajax(settings).done(function (response) {
+			console.log(typeof(response));
+			response=JSON.parse(response);
+			console.log(response.status);
+			if(response.status)
+			{
+			window.name=self.account;
+		window.location.href="main?account="+self.account;   
+			}
+			else{
+				alert('密码错误');
+			}
+			});
+
+
+			//存储session
+
+			var settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "http://localhost:3000/login_session?userid="+ this.account,
+			"method": "GET",
+			"headers": {
+				"accept": "application/json, text/javascript, */*; q=0.01",
+			
+			},
+			"processData": false,
+			"contentType": false,
+			"mimeType": "multipart/form-data",
+			}
+
+			$.ajax(settings).done(function (response) {
+			console.log(response);
+			
+			});
+
+			
+
+	  }
+
+	  
+  }
+  
+})
+</script>
+</html>

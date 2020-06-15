@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>摄像头拍照</title>
+  <!-- for-mobile-apps -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Personal Profile Form Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<!-- //for-mobile-apps -->
+<link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/j-forms.css">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style>
+.web-cam { 
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+}
+
+video {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: -125px;
+  left: -125px;
+}
+</style>
+<body>
+
+<div class="content">
+		<h1>Personal Profile form widget</h1>
+		<div class="main w3l">
+			<div class="im-g">
+					<div class="web-cam" style="position: relative;z-index:999;margin: auto;/* top:0; */">
+					<video controls="" id="video">
+								<source id="video" type="video">
+								<canvas id="canvas"></canvas>
+					</video>
+       		</div>
+		</div>
+      
+			<form class="contact-forms wthree">
+	
+			
+
+					<div class="main-row">
+						<div class="input">
+							
+							<input type="text" id="address" placeholder="Address" name="address" required="">
+						</div>
+					</div>
+					<!-- end address -->
+
+
+
+			
+				<!-- end /.content -->
+
+				<div class="footer">
+					<button id="capture" type="submit" class="primary-btn">start</button>
+				</div>
+				<!-- end /.footer -->
+
+			</form>
+		</div>
+		<p class="copy_rights">&copy; 2016 Personal Profile Form Widget. All Rights Reserved | Design by  <a href="http://w3layouts.com/"> W3layouts</a></p>
+</div>
+		<!-- Scripts -->
+		<script src="js/jquery.1.11.1.min.js"></script>
+
+		<!--[if lt IE 10]>
+				<script src="j-folder/js/jquery.placeholder.min.js"></script>
+			<![endif]-->
+
+		<script>
+			$(document).ready(function(){
+
+				// Phone masking
+				$('#phone').mask('(999) 999-9999', {placeholder:'x'});
+
+				// Post code masking
+				$('#post').mask('999-9999', {placeholder:'x'});
+
+			});
+		</script>
+
+
+
+
+
+
+
+    <div class="auto">
+      
+            <div>
+                <button  title="点击进行拍照">拍照</button>
+            </div>
+            
+       
+    </div>
+
+
+
+
+
+
+
+  <script>
+    var file ,stream;
+    //访问用户媒体设备的兼容方法
+    function getUserMedia(constraints, success, error) {
+      if (navigator.mediaDevices.getUserMedia) {
+        //最新的标准API
+        navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+      } else if (navigator.webkitGetUserMedia) {
+        //webkit核心浏览器
+        navigator.webkitGetUserMedia(constraints,success, error)
+      } else if (navigator.mozGetUserMedia) {
+        //firfox浏览器
+        navigator.mozGetUserMedia(constraints, success, error);
+      } else if (navigator.getUserMedia) {
+        //旧版API
+        navigator.getUserMedia(constraints, success, error);
+      }
+    }
+ 
+    let video = document.getElementById('video');
+    let canvas = document.getElementById('canvas');
+    let context = canvas.getContext('2d');
+    let flag  = false;
+    let count = 0;
+
+var data = {'data':'asdfsdf'};
+
+
+ 
+    function success(stream) {
+      //兼容webkit核心浏览器
+      let CompatibleURL = window.URL || window.webkitURL;
+      //将视频流设置为video元素的源
+      console.log(stream);
+      stream = stream;
+      //video.src = CompatibleURL.createObjectURL(stream);
+      video.srcObject = stream;
+      video.play();
+    }
+ 
+    function error(error) {
+      console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
+    }
+ 
+    if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {
+      //调用用户媒体设备, 访问摄像头
+      getUserMedia({video : {width: 480, height: 320}}, success, error);
+    } else {
+      alert('不支持访问用户媒体');
+    }
+        // base64转文件
+
+
+
+    //开始拍照
+    document.getElementById('capture').addEventListener('click', 
+    function () {
+
+
+        console.log('start');
+        // myinter =  setInterval(get_face,5000);
+        get_face();
+
+
+    }
+    
+    
+    )
+
+ 
+    let get_face = function(){
+      count= count+1;
+      if(count >100)
+      {
+        clearInterval(myinter);
+      }
+        context.drawImage(video, 0, 0, 480, 320);      
+        // 获取图片base64链接
+        var image = canvas.toDataURL('image/png');
+        data = image;
+        // 定义一个img
+
+        send();
+    }
+
+    let send = function () {
+      console.log('send to back');
+
+        console.log(data)
+
+
+            
+            var data1= {
+                data: JSON.stringify({
+                    'data': data
+                }),
+            }
+                $.ajax({
+                url:'http://127.0.0.1:3001',
+                type:'POST',
+                data:data1,
+                dataType: 'json',
+                success:function(res){
+                    console.log(res)
+
+                },
+                error:function (res) {
+                    console.log(res.responseText);
+                }
+
+            })
+
+        //stream.getTracks()[0].stop();//结束关闭流
+    }
+    
+  </script>
+</body>
+</html>
+
